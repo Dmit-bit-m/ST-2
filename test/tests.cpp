@@ -172,3 +172,88 @@ TEST(Kalinin_Tasks, swimming_pool) {
         SwimmingPoolTask(3, 1, 1000,
         2000), fencePrice + areaPrice);
 }
+
+// Additional 15 tests
+TEST(Kalinin_Test_Circle, negative_radius) {
+    Circle circle(-5);
+    EXPECT_DOUBLE_EQ(0, circle.getRadius());
+}
+
+TEST(Kalinin_Test_Circle, large_radius) {
+    Circle circle(1e6);
+    EXPECT_DOUBLE_EQ(1e6, circle.getRadius());
+}
+
+TEST(Kalinin_Test_Circle, zero_radius_area) {
+    Circle circle(0);
+    EXPECT_DOUBLE_EQ(0, circle.getArea());
+}
+
+TEST(Kalinin_Test_Circle, large_radius_area) {
+    Circle circle(1e6);
+    EXPECT_DOUBLE_EQ(1e6 * 1e6 * PI, circle.getArea());
+}
+
+TEST(Kalinin_Test_Circle, zero_radius_ference) {
+    Circle circle(0);
+    EXPECT_DOUBLE_EQ(0, circle.getFerence());
+}
+
+TEST(Kalinin_Test_Circle, large_radius_ference) {
+    Circle circle(1e6);
+    EXPECT_DOUBLE_EQ(1e6 * 2 * PI, circle.getFerence());
+}
+
+TEST(Kalinin_Test_Circle, set_negative_radius) {
+    Circle circle;
+    circle.setRadius(-5);
+    EXPECT_DOUBLE_EQ(0, circle.getRadius());
+}
+
+TEST(Kalinin_Test_Circle, set_large_radius) {
+    Circle circle;
+    circle.setRadius(1e6);
+    EXPECT_DOUBLE_EQ(1e6, circle.getRadius());
+}
+
+TEST(Kalinin_Test_Circle, set_zero_area) {
+    Circle circle;
+    circle.setArea(0);
+    EXPECT_DOUBLE_EQ(0, circle.getArea());
+}
+
+TEST(Kalinin_Test_Circle, set_large_area) {
+    Circle circle;
+    circle.setArea(1e12);
+    EXPECT_DOUBLE_EQ(1e12, circle.getArea());
+}
+
+TEST(Kalinin_Test_Circle, set_zero_ference) {
+    Circle circle;
+    circle.setFerence(0);
+    EXPECT_DOUBLE_EQ(0, circle.getFerence());
+}
+
+TEST(Kalinin_Test_Circle, set_large_ference) {
+    Circle circle;
+    circle.setFerence(1e6 * 2 * PI);
+    EXPECT_DOUBLE_EQ(1e6 * 2 * PI, circle.getFerence());
+}
+
+TEST(Kalinin_Test_Circle, check_area_after_setting_large_radius) {
+    Circle circle;
+    circle.setRadius(1e6);
+    EXPECT_DOUBLE_EQ(1e6 * 1e6 * PI, circle.getArea());
+}
+
+TEST(Kalinin_Test_Circle, set_radius_check_large_ference) {
+    Circle circle;
+    circle.setRadius(1e6);
+    EXPECT_DOUBLE_EQ(1e6 * 2 * PI, circle.getFerence());
+}
+
+TEST(Kalinin_Test_Circle, check_radius_after_setting_large_area) {
+    Circle circle;
+    circle.setArea(1e12);
+    EXPECT_DOUBLE_EQ(sqrt(1e12 / PI), circle.getRadius());
+}
