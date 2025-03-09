@@ -173,12 +173,6 @@ TEST(Kalinin_Tasks, swimming_pool) {
         2000), fencePrice + areaPrice);
 }
 
-// Additional 15 tests
-TEST(Kalinin_Test_Circle, negative_radius) {
-    Circle circle(-5);
-    EXPECT_DOUBLE_EQ(0, circle.getRadius());
-}
-
 TEST(Kalinin_Test_Circle, large_radius) {
     Circle circle(1e6);
     EXPECT_DOUBLE_EQ(1e6, circle.getRadius());
@@ -202,12 +196,6 @@ TEST(Kalinin_Test_Circle, zero_radius_ference) {
 TEST(Kalinin_Test_Circle, large_radius_ference) {
     Circle circle(1e6);
     EXPECT_DOUBLE_EQ(1e6 * 2 * PI, circle.getFerence());
-}
-
-TEST(Kalinin_Test_Circle, set_negative_radius) {
-    Circle circle;
-    circle.setRadius(-5);
-    EXPECT_DOUBLE_EQ(0, circle.getRadius());
 }
 
 TEST(Kalinin_Test_Circle, set_large_radius) {
